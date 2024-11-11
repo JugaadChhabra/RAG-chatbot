@@ -21,6 +21,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.tom_roush.pdfbox.android.PDFBoxResourceLoader;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -207,11 +209,12 @@ public class MainActivity extends AppCompatActivity {
 
                 String bot_query = "context: \n";
                 FileProcessor fileProcessor = new FileProcessor(this);
-                if (!fileProcessor.extractedText.isEmpty()) {
-                    bot_query += fileProcessor.extractedText;
-                    Log.d("jugaad_extracted", fileProcessor.extractedText);
-//                    Log.d("jugaad_extracted", fileProcessor.getExtractedText() + "\nthis is the extracted text");
-//                    Log.d("jugaad_context","file processor not null");
+                String datafile = FileProcessor.extractedText;
+                Log.d("adi_test", datafile);
+                if (!datafile.isEmpty()) {
+                    bot_query += datafile;
+                    Log.d("jugaad_extracted", "file has data in it");
+
                 }
                 else {
                     Log.d("jugaad_extracted_check","extracted string is empty");

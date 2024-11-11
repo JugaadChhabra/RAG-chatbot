@@ -10,7 +10,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class FileProcessor {
     private Activity activity;
-    public String extractedText = "";
+    public static String extractedText = "";
 
     public interface OnTextExtractedListener {
         void onTextExtracted(String text);
