@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RagChatbot</string>
+    <string name="untitled_room">Untitled</string>
+    <string name="please_upload_files">Please upload files to start the chat</string>
+    <string name="room_name">Room Name</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="start_process">Start Processing</string>
+    <string name="right_navigation_drawer_header_title">Your Documents</string>
+    <string name="text_file_title">Text files</string>
+    <string name="no_file_found">No file found, please upload something.</string>
+    <string name="pdf_file_title">PDF files</string>
+    <string name="api_sleep_time_clarification"><b>Note:</b> When processing files by default a delay is added because the free version of the Gemini API has some limitations. If you have a paid API Key, then you can disable this delay in the settings.</string>
+</resources>
