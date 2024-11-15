@@ -1,5 +1,6 @@
 package com.example.ragchatbot;
 
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -59,8 +60,9 @@ public class HandleSwipeAndDrawers extends GestureDetector.SimpleOnGestureListen
             if (isSwipeThresholdReached && isSwipeVelocityThresholdReached && isDrawerFullyClosed)
             {
                 if (diffX > 0) {
-                    drawerLayout.openDrawer(GravityCompat.START);
+//                    drawerLayout.openDrawer(GravityCompat.START);
 //                    openLeftDrawer();
+                    Log.d("test","no left drawer");
                 } else {
                     drawerLayout.openDrawer(GravityCompat.END);
 //                    openRightDrawer();

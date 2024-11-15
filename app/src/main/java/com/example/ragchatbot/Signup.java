@@ -111,11 +111,11 @@ public class Signup extends AppCompatActivity {
                         db.collection("users").document(userId).set(user)
                                 .addOnSuccessListener(aVoid -> {
                                     Toast.makeText(Signup.this, "User Registered Successfully!", Toast.LENGTH_SHORT).show();
-                                    navigateToMainActivity(); // Optionally navigate to the main activity
+                                    navigateToMainActivity();
                                 })
                                 .addOnFailureListener(e -> Toast.makeText(Signup.this, "Failed to save user info: " + e.getMessage(), Toast.LENGTH_SHORT).show());
                     } else {
-                        Toast.makeText(Signup.this, "Authentication Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Signup Completed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

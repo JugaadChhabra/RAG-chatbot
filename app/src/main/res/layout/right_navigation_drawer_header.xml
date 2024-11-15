@@ -41,7 +41,8 @@
                 android:text="@string/text_file_title"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/linearLayoutTxtContainer"
@@ -57,7 +58,8 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/no_file_found"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
             <TextView
@@ -69,7 +71,8 @@
                 android:text="@string/pdf_file_title"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/linearLayoutPDFContainer"
@@ -85,7 +88,8 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/no_file_found"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>
@@ -97,7 +101,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/start_process"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:backgroundTint="#2196F3"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -109,7 +114,8 @@
         android:text="@string/api_sleep_time_clarification"
         android:textAlignment="textStart"
         android:textColor="@color/black"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/processingTextProgressContainer"
@@ -126,7 +132,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:indeterminate="true" />
+            android:indeterminate="true"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/processingTextProgressDescription"

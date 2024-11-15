@@ -5,12 +5,14 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
+import android.transition.Visibility;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText userMessageInput;
 
     private DrawerLayout drawerLayout;
-    private NavigationView leftNavigationView, rightNavigationView;
+    private NavigationView rightNavigationView;
     private ImageView leftNavigationDrawerIcon, rightNavigationDrawerIcon;
 
     private HandleNavigationDrawersVisibility handleNavigationDrawers;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView uploadFilesIndicator;
 
-    private FileProcessor fileProcessor;
+    private ProgressBar progressBar;
 
     public static Map<String, Uri> filesUriStore;
 
@@ -144,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
         roomNameTextView = findViewById(R.id.roomNameTextView);
 
         drawerLayout = findViewById(R.id.drawerLayout);
-        leftNavigationView = findViewById(R.id.leftNavigationView);
         rightNavigationView = findViewById(R.id.rightNavigationView);
         leftNavigationDrawerIcon = findViewById(R.id.leftNavigationDrawerIcon);
         rightNavigationDrawerIcon = findViewById(R.id.rightNavigationDrawerIcon);
@@ -160,6 +161,8 @@ public class MainActivity extends AppCompatActivity {
         userMessageInput = findViewById(R.id.userInput);
 
         uploadFilesIndicator = findViewById(R.id.uploadFilesIndicator);
+
+        progressBar = findViewById(R.id.responsesGenerationProgressBar);
     }
 
     private void instantiateObjects()
@@ -172,9 +175,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         handleNavigationDrawers = new HandleNavigationDrawersVisibility(
-                leftNavigationDrawerIcon,
                 rightNavigationDrawerIcon,
-                leftNavigationView,
                 rightNavigationView,
                 drawerLayout
         );
@@ -203,7 +204,11 @@ public class MainActivity extends AppCompatActivity {
 
         sendMessageButton.setOnClickListener(v -> {
             String userMessage = userMessageInput.getText().toString().trim();
+
+            progressBar.setVisibility(View.VISIBLE);
+
             if (!userMessage.isEmpty()) {
+                userMessageTextView.setVisibility(View.VISIBLE);
                 userMessageTextView.setText(userMessage);
                 userMessageInput.setText("");
 
@@ -259,9 +264,12 @@ public class MainActivity extends AppCompatActivity {
     public void GeminiCode(String userQuery)
     {
         SendMessage model = new SendMessage();
+        botMessageTextView.setVisibility(View.VISIBLE);
+
         botMessageTextView.setText("");
 
         model.getResponse(userQuery, new ResponseCallback() {
+
             @Override
             public void onResponse(String response) {
                 botMessageTextView.setText(response);
@@ -273,6 +281,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        progressBar.setVisibility(View.GONE);
     }
 
 
