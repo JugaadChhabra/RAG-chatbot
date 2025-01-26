@@ -45,7 +45,7 @@ public class SendMessage {
 
     private GenerativeModelFutures getModel()
     {
-        String apiKey = "AIzaSyDx6MMRGlUmy_i5Af1kbJqIOco2yCLI6B8";
+        String apiKey = "";
 
         SafetySetting harassmentSafety = new SafetySetting(HarmCategory.HARASSMENT, BlockThreshold.ONLY_HIGH);
 
